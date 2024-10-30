@@ -24,7 +24,7 @@ Function Convert-WindowsISO2VHDX {
     Initialize-Disk  -Number $VHDXDiskNumner  -PartitionStyle GPT
     
     # Create EFI,rimary partition and save the drive letter
-    $EFIDriveLetter = (New-Partition -DiskNumber $VHDXDiskNumner -Size 200MB  -AssignDriveLetter | Format-Volume -FileSystem FAT32 -NewFileSystemLabel "EFI" -Confirm:$false).DriveLetter
+    $EFIDriveLetter = (New-Partition -DiskNumber $VHDXDiskNumner -Size 200MB  -GptType '{c12a7328-f81f-11d2-ba4b-00a0c93ec93b}'   -AssignDriveLetter | Format-Volume -FileSystem FAT32 -NewFileSystemLabel "EFI" -Confirm:$false).DriveLetter
     $OSDriveLetter = (New-Partition -DiskNumber $VHDXDiskNumner -UseMaximumSize -AssignDriveLetter  | Format-Volume -FileSystem NTFS -NewFileSystemLabel "OS" -Confirm:$false).DriveLetter
     
     # Mount OS .iso image
