@@ -4,7 +4,7 @@ Function Convert-WindowsISO2VHDX {
         [Parameter(Mandatory = $true)] [int]$VHDXSize,
         [Parameter(Mandatory = $true)] [string]$OSImagenName
     )
-    # Porcess needed veriable
+    # Porcess needed variable
     [string]$SystemVHDXNamePath
     [int]$VHDXDiskNumber,
     [string]$EFIDriveLetter,
